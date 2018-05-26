@@ -1,0 +1,14 @@
+<div class="operator-main-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-3" *ngFor="let operator of operators">
+        <a class="h-100 d-block" routerLink="/operator/{{operator.id}}">
+          <mat-card class="operator-mat-card">
+            <img  mat-card-image [src]="operator.logo" *ngIf="operator.logo">
+            <mat-icon *ngIf="!operator.logo">phone</mat-icon>
+          </mat-card>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
