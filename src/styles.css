@@ -7,3 +7,16 @@
   height: 100%;
 }
 
+.full-width-input .mat-form-field-infix,
+.full-width-input .mat-form-field-wrapper,
+mat-form-field {
+  width: 100%;
+}
+
+.mb-30 {
+  margin-bottom: 30px;
+}
+
+.mr-20 {
+  margin-right: 20px;
+}
