@@ -1,18 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { MobileOperator } from '../typings';
 import { FillForm, MockFillType } from '../typings';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class RequesterService {
 
-  constructor(private http: HttpClient) {
-  }
-
-  public getOperator(id: number = -1): MobileOperator {
-    return operators.filter(item => item.id === id)[0];
+  public getOperator(id: number = -1): MobileOperator | null {
+    const operator = operators.filter(item => item.id === id);
+    return operator ? operator[0] : null;
   }
 
   public getAllOperators(): MobileOperator[] {

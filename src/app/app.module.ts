@@ -21,7 +21,7 @@ import {
 import { TextMaskModule } from 'angular2-text-mask';
 import { InfoSnackbarComponent } from './info-snackbar/info-snackbar.component';
 
-const appRoutes: Routes = [
+export const appRoutes: Routes = [
   { path: '', component: MainComponent, pathMatch: 'full' },
   { path: 'operator/:id', component: OperatorComponent },
 ];
