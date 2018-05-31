@@ -18,11 +18,14 @@
                    [textMask]="{mask: phoneMask}"
                    placeholder="+7 (999) 999-9999">
             <mat-error
-              *ngIf="fillForm.get('phone').hasError('pattern') && !fillForm.get('phone').hasError('validOperatorCode')">
+              *ngIf="!fillForm.get('phone').hasError('required') && fillForm.get('phone').hasError('pattern') && !fillForm.get('phone').hasError('validOperatorCode')">
               <span>Invalid phone</span>
             </mat-error>
-            <mat-error *ngIf="fillForm.get('phone').hasError('validOperatorCode')">
+            <mat-error *ngIf="!fillForm.get('phone').hasError('required') && fillForm.get('phone').hasError('validOperatorCode')">
               <span>Invalid operator code</span>
+            </mat-error>
+            <mat-error *ngIf="fillForm.get('phone').hasError('required')">
+              <span>Phone is required</span>
             </mat-error>
           </mat-form-field>
         </div>
@@ -36,11 +39,14 @@
                    [textMask]="{mask: amountMask, guide: false}"
                    type="tel">
             <span matSuffix>₽</span>
-            <mat-error *ngIf="fillForm.get('amount').hasError('noLess')">
-              Should be not less than 1₽
+            <mat-error *ngIf="!fillForm.get('amount').hasError('required') && fillForm.get('amount').hasError('noLess')">
+              <span>Should be not less than 1₽</span>
             </mat-error>
-            <mat-error *ngIf="fillForm.get('amount').hasError('noMore')">
-              Should be no more than 1000₽
+            <mat-error *ngIf="!fillForm.get('amount').hasError('required') && fillForm.get('amount').hasError('noMore')">
+              <span>Should be no more than 1000₽</span>
+            </mat-error>
+            <mat-error *ngIf="fillForm.get('amount').hasError('required')">
+              <span>Amount is required</span>
             </mat-error>
             <mat-hint>Min 1₽ Max 1000₽</mat-hint>
           </mat-form-field>
