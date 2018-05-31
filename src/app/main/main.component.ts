@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import {RequesterService} from '../requester.service';
-import IMobileOperator from '../typings/IMobileOperator';
+import { RequesterService } from '../services/requester.service';
+import { MobileOperator } from '../typings';
 
 @Component({
   selector: 'app-main',
@@ -8,7 +8,8 @@ import IMobileOperator from '../typings/IMobileOperator';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent {
-  operators: IMobileOperator[];
+  operators: MobileOperator[];
+
   constructor(private requester: RequesterService) {
     this.operators = requester.getAllOperators();
   }

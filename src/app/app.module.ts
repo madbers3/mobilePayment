@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
@@ -15,11 +15,11 @@ import {
   MatCardModule,
   MatFormFieldModule,
   MatIconModule,
-  MatInputModule,
+  MatInputModule, MatSnackBarModule,
   MatToolbarModule
 } from '@angular/material';
 import { TextMaskModule } from 'angular2-text-mask';
-import { IsPhoneDirective } from './is-phone.directive';
+import { InfoSnackbarComponent } from './info-snackbar/info-snackbar.component';
 
 const appRoutes: Routes = [
   { path: '', component: MainComponent, pathMatch: 'full' },
@@ -31,7 +31,10 @@ const appRoutes: Routes = [
     AppComponent,
     MainComponent,
     OperatorComponent,
-    IsPhoneDirective,
+    InfoSnackbarComponent,
+  ],
+  entryComponents: [
+    InfoSnackbarComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,9 @@ const appRoutes: Routes = [
     MatButtonModule,
     FormsModule,
     TextMaskModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,8 @@
-<mat-toolbar color="primary">
-  <a routerLink="/" class="logo-text">Mobile Payment</a>
+<mat-toolbar color="primary" class="d-flex align-items-center">
+  <a routerLink="/" routerLinkActive="d-none" [routerLinkActiveOptions]="{ exact: true }" class="logo-icon mr-2 justify-content-center align-items-center">
+    <mat-icon>arrow_back</mat-icon>
+  </a>
+  <div>Mobile Payment</div>
 </mat-toolbar>
 <router-outlet></router-outlet>
 <!--<AppFooter></AppFooter>-->

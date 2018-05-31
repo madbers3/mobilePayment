@@ -4,5 +4,13 @@
 }
 
 .operator-logo {
-  max-height: 50px;
+  max-height: 100px;
+}
+
+.fill-btn {
+  width: 100%;
+
+  @media(min-width: 576px) {
+    max-width: 350px;
+  }
 }

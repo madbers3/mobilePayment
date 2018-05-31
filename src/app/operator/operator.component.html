@@ -1,53 +1,53 @@
 <section class="operator-wrapper">
   <div class="container">
+    .
     <div class="row align-items-center justify-content-center mb-30">
       <div class="d-flex align-items-center">
-        <img [src]="operator.logo" alt="" class="mr-20 operator-logo">
+        <img [src]="operator.logo" alt="" class="operator-logo">
       </div>
     </div>
-    <form #fillForm="ngForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="fillForm" #formDirective="ngForm" (ngSubmit)="onSubmit(formDirective)">
       <div class="row justify-content-center">
-        <div class="col-6 full-width-input">
+        <div class="col-12 col-lg-8 full-width-input">
           <mat-form-field appearance="outline">
             <mat-label>Mobile Phone</mat-label>
             <input type="tel"
                    matInput
+                   formControlName="phone"
                    name="phone" id="phone"
-                   appIsPhone
-                   required
-                   #phone="ngModel"
                    [textMask]="{mask: phoneMask}"
-                   [(ngModel)]="model.phone"
                    placeholder="+7 (999) 999-9999">
-            <mat-error *ngIf="(phone.invalid && (phone.dirty || phone.touched)) && phone.errors.isPhone">
-              Invalid phone
+            <mat-error
+              *ngIf="fillForm.get('phone').hasError('pattern') && !fillForm.get('phone').hasError('validOperatorCode')">
+              <span>Invalid phone</span>
+            </mat-error>
+            <mat-error *ngIf="fillForm.get('phone').hasError('validOperatorCode')">
+              <span>Invalid operator code</span>
             </mat-error>
           </mat-form-field>
         </div>
-        <div class="col-lg-7"></div>
-        <div class="col-6 full-width-input">
+        <div class="col-md-7"></div>
+        <div class="col-12 col-lg-8 full-width-input">
           <mat-form-field appearance="outline">
             <mat-label>Amount</mat-label>
             <input matInput
+                   formControlName="amount"
                    name="amount" id="amount"
-
-                   required
-                   #amount="ngModel"
                    [textMask]="{mask: amountMask, guide: false}"
-                   [(ngModel)]="model.amount" type="tel" >
+                   type="tel">
             <span matSuffix>₽</span>
-            <mat-error *ngIf="(amount.invalid && (amount.dirty || amount.touched)) && amount.errors.min">
-              Should be no less than 1₽
+            <mat-error *ngIf="fillForm.get('amount').hasError('noLess')">
+              Should be not less than 1₽
             </mat-error>
-            <mat-error *ngIf="(amount.invalid && (amount.dirty || amount.touched)) && amount.errors.max">
+            <mat-error *ngIf="fillForm.get('amount').hasError('noMore')">
               Should be no more than 1000₽
             </mat-error>
             <mat-hint>Min 1₽ Max 1000₽</mat-hint>
           </mat-form-field>
         </div>
-        <div class="col-lg-7"></div>
-        <div class="col-12 col-lg-6 d-flex justify-content-end">
-          <button type="submit" mat-raised-button color="primary" [disabled]="!fillForm.form.valid">Fill</button>
+        <div class="col-md-7"></div>
+        <div class="col-12 col-lg-8 d-flex justify-content-end">
+          <button type="submit" class="fill-btn" mat-raised-button color="primary" [disabled]="!fillForm.valid">Fill</button>
         </div>
       </div>
     </form>
