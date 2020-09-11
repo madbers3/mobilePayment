@@ -28,7 +28,10 @@
               },
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "angular2-text-mask"
+            ]
           },
           "configurations": {
             "production": {
@@ -124,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "mobile-payment"
+  "defaultProject": "mobile-payment",
+  "cli": {
+    "analytics": false
+  }
 }

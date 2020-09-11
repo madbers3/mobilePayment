@@ -1,4 +1,4 @@
-import {AbstractControl, ValidatorFn} from '@angular/forms';
+import { AbstractControl, ValidatorFn } from '@angular/forms';
 
 export default function validOperatorCode(codes: number[]): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } => {

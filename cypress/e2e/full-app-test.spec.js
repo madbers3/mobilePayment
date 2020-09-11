@@ -24,7 +24,7 @@ describe('Operator page', () => {
   it('Check phone mask', () => {
     cy.visit(BASE_URL);
     cy.get(`[href="/operator/1"]`).click();
-    cy.get(PHONE_INPUT).focus().type('+./\';,cn.йууцкуkjdasdn', {delay: 200}).should('have.value', '+7 (7__) ___-__-__').clear();
+    cy.get(PHONE_INPUT).focus().type('+./\';,cn.йууцкуkjdasdn', {delay: 200}).should('have.value', '+7 (___) ___-__-__').clear();
   });
   it('Check required validation', () => {
     cy.get(AMOUNT_INPUT).focus();

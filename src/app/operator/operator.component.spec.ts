@@ -1,23 +1,20 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { OperatorComponent } from './operator.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {
-  MatButtonModule,
-  MatCardModule,
-  MatFormFieldModule,
-  MatIconModule,
-  MatInputModule,
-  MatSnackBarModule,
-  MatToolbarModule
-} from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { appRoutes } from '../app.module';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { TextMaskModule } from 'angular2-text-mask';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MainComponent } from '../main/main.component';
 import { InfoSnackbarComponent } from '../info-snackbar/info-snackbar.component';
 import { AppComponent } from '../app.component';
@@ -30,7 +27,7 @@ describe('OperatorComponent', () => {
   let component: OperatorComponent;
   let fixture: ComponentFixture<OperatorComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
@@ -41,7 +38,6 @@ describe('OperatorComponent', () => {
       imports: [
         BrowserModule,
         BrowserAnimationsModule,
-        NgbModule.forRoot(),
         RouterModule.forRoot(
           appRoutes,
           {enableTracing: true} // <-- debugging purposes only
@@ -82,7 +78,7 @@ describe('OperatorComponent', () => {
 
     })
       .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(OperatorComponent);

@@ -2,16 +2,6 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MainComponent } from './main.component';
 import { BrowserModule } from '@angular/platform-browser';
-import {
-  MatButtonModule,
-  MatCardModule,
-  MatFormFieldModule,
-  MatIconModule,
-  MatInputModule,
-  MatSnackBarModule,
-  MatToolbarModule
-} from '@angular/material';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { appRoutes } from '../app.module';
@@ -22,12 +12,19 @@ import { InfoSnackbarComponent } from '../info-snackbar/info-snackbar.component'
 import { OperatorComponent } from '../operator/operator.component';
 import { AppComponent } from '../app.component';
 import { APP_BASE_HREF } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 describe('MainComponent', () => {
   let component: MainComponent;
   let fixture: ComponentFixture<MainComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
@@ -38,7 +35,6 @@ describe('MainComponent', () => {
       imports: [
         BrowserModule,
         BrowserAnimationsModule,
-        NgbModule.forRoot(),
         RouterModule.forRoot(
           appRoutes,
           {enableTracing: true} // <-- debugging purposes only
@@ -59,7 +55,7 @@ describe('MainComponent', () => {
 
     })
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(MainComponent);

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { MobileOperator } from '../typings';
-import { FillForm, MockFillType } from '../typings';
+import { FillForm, MobileOperator, MockFillType, RESPONSE_STATUS_ERROR, RESPONSE_STATUS_SUCCESS } from '../typings';
+import delay from 'delay';
 
 @Injectable({
   providedIn: 'root'
@@ -17,18 +17,18 @@ export class RequesterService {
     return operators;
   }
 
-  public fill(data: FillForm): Promise<MockFillType> {
+  public async fill(data: FillForm): Promise<MockFillType> {
     console.log(data);
+
     // return this.http.post('/random', data, {});
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (Math.round(Math.random())) {
-          resolve({status: 200, success: true, data: {sent: data, message: 'Payment is successful'}});
-        } else {
-          reject({status: 500, success: false, data: {sent: data, message: 'Payment is failed'}});
-        }
-      }, 2000);
-    });
+
+    await delay(2000);
+
+    if (Math.round(Math.random())) {
+      return {status: RESPONSE_STATUS_SUCCESS, success: true, data: {sent: data, message: 'Payment is successful'}};
+    } else {
+      return {status: RESPONSE_STATUS_ERROR, success: false, data: {sent: data, message: 'Payment is failed'}};
+    }
   }
 }
 
