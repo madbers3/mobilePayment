@@ -1,27 +1,21 @@
-# MobilePayment
+В <a href="https://github.com/Xaz16/mobilePayment">шаблоне</a> проекта уже было реализованно несколько требований \
+Первым делом я обновил angular с шестой до 10 версии, чтобы использовать фичи асинхронных функций, что сделало бы код более читаемым. \
+Далее я изменил несколько функций `src/app/operator/operator.component.ts:50` `src/app/services/requester.service.ts:20` по своему усмотрению.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.3.
+Улучшение проекта:
+- для будущего расширения проекта и оптимизации начальной загрузки страницы, нужно будет разделить фронтенд на lazy-loading модули(сейчас это не нужно) 
+- далее нужна серверная часть проекта которая будет раздавать production build проекта, реализовывать функционал API для проекта, хранение данных, кеширование, если нужна оптимизация SEO использовать Angular Universal
+- код, который будет использоваться на сервеной и клиентской стороне перенести в общую директорию проекта
+- можно было бы разработать административную часть проекта в виде Angular приложения, между фронтом и админкой можно иметь общие компоненты
+- хранение состояний, например Redux
+- некоторые части проекта, например валидаторы, можно вынести с помощью npm пакетов (или найти уже готовую реализацию или создать пакет, что увеличит переиспользуемость кода между проектами)
+- для мультиплатформиной реализации можно использовать PWA
+- использование Service Worker(+ используется PWA) для кеширования JS, CSS, медиаконтента
+- автоматизация разработки с помощью CI/CD
+- CI, некоторые вещи такие как линтеры и тесты у нас уже есть
+- чтобы не забывать запускать тесты можно использовать Git Hooks
+- CD использование версионирования проекта, автоматической заливки проекта на сервер
+- использования пайплайнов, например с помощью GitLab
+- если реализовать выше описанные фичи, то проект будет разделен на серверное приложение, фронтенд и админку, по этому есть смысл задуматся о мульти или моно репозитории, учитывая связанность кода проекта было бы сложно использовать мультирепо, если задумываться об огромном проекте над которым работают сотни человек, то есть смысл использования мультирепозитория и микросервистой архитектуры проекта, так как у меня довольно мало опыта в таких вещах, то я пожалуй не буду комментировать как можно это сделать.
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Если говорить о командной разработке, то возможно было бы эффективно использование одной из методологий разработки и использование инструмента управления проектами(например YouTrack)

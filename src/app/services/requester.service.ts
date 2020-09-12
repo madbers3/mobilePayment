@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { FillForm, MobileOperator, MockFillType, RESPONSE_STATUS_ERROR, RESPONSE_STATUS_SUCCESS } from '../typings';
+import {Injectable} from '@angular/core';
+import {FillForm, MobileOperator, MockFillType, RESPONSE_STATUS_ERROR, RESPONSE_STATUS_SUCCESS} from '../typings';
 import delay from 'delay';
 
 @Injectable({
