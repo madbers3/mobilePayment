@@ -1,19 +1,18 @@
-import { TestBed, inject } from '@angular/core/testing';
+import { OperatorsService } from './operators.service';
+import { inject, TestBed } from '@angular/core/testing';
 
-import { RequesterService } from './requester.service';
-
-describe('RequesterService', () => {
+describe('OperatorsService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [RequesterService]
+      providers: [OperatorsService]
     });
   });
 
-  it('should be created', inject([RequesterService], (service: RequesterService) => {
+  it('should be created', inject([OperatorsService], (service: OperatorsService) => {
     expect(service).toBeTruthy();
   }));
 
-  it('Should return all operators', inject([RequesterService], (service: RequesterService) => {
+  it('Should return all operators', inject([OperatorsService], (service: OperatorsService) => {
     expect(service.getAllOperators()).toContain({
       name: 'Beeline',
       logo: '/assets/images/beeline.svg',
@@ -22,8 +21,8 @@ describe('RequesterService', () => {
     });
   }));
 
-  it('Should return operator with id = 1', inject([RequesterService], (service: RequesterService) => {
-    expect(service.getOperator(1)).toEqual({
+  it('Should return operator with id = 1', inject([OperatorsService], (service: OperatorsService) => {
+    expect(service.getOperatorById(1)).toEqual({
       name: 'Beeline',
       logo: '/assets/images/beeline.svg',
       id: 1,
@@ -31,8 +30,8 @@ describe('RequesterService', () => {
     });
   }));
 
-  it('Should return operator with id = 3', inject([RequesterService], (service: RequesterService) => {
-    expect(service.getOperator(3)).toEqual({
+  it('Should return operator with id = 3', inject([OperatorsService], (service: OperatorsService) => {
+    expect(service.getOperatorById(3)).toEqual({
       name: 'Megafon',
       logo: '/assets/images/megafon.svg',
       id: 3,

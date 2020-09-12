@@ -1,8 +1,0 @@
-{
-  "integrationFolder": "cypress/e2e",
-  "viewportWidth": 1280,
-  "viewportHeight": 1080,
-  "env": {
-    "port": "4200"
-  }
-}

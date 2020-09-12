@@ -1,0 +1,17 @@
+{
+  "fileServerFolder": "./e2e",
+  "fixturesFolder": "./fixtures",
+  "integrationFolder": "./e2e",
+  "pluginsFile": "./plugins/index",
+  "supportFile": false,
+  "video": true,
+  "videosFolder": "./videos",
+  "screenshotsFolder": "./screenshots",
+  "chromeWebSecurity": false,
+  "viewportWidth": 1280,
+  "viewportHeight": 1080,
+  "userAgent": "chrome",
+  "env": {
+    "port": "4200"
+  }
+}

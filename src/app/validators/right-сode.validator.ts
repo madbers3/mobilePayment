@@ -11,6 +11,6 @@ export default function validOperatorCode(codes: number[]): ValidatorFn {
         }
       });
     }
-    return !valid ? {'validOperatorCode': {value: control.value}} : null;
+    return !valid ? {validOperatorCode: {value: control.value}} : null;
   };
 }

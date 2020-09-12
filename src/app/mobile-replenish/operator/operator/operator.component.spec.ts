@@ -1,27 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { OperatorComponent } from './operator.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { appRoutes } from '../app.module';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { TextMaskModule } from 'angular2-text-mask';
-import { MatCardModule } from '@angular/material/card';
-import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MainComponent } from '../main/main.component';
 import { InfoSnackbarComponent } from '../info-snackbar/info-snackbar.component';
-import { AppComponent } from '../app.component';
-import { APP_BASE_HREF } from '@angular/common';
-import { RequesterService } from '../services/requester.service';
+import { APP_BASE_HREF, CommonModule } from '@angular/common';
 import { Observable } from 'rxjs';
 import 'rxjs/add/observable/of';
+import { OperatorsService } from '../../operators.service';
+import { ReplenishPhoneService } from '../replenish-phone.service';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('OperatorComponent', () => {
   let component: OperatorComponent;
@@ -30,29 +24,19 @@ describe('OperatorComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent,
-        MainComponent,
         OperatorComponent,
         InfoSnackbarComponent,
       ],
       imports: [
-        BrowserModule,
+        CommonModule,
+        RouterTestingModule,
         BrowserAnimationsModule,
-        RouterModule.forRoot(
-          appRoutes,
-          {enableTracing: true} // <-- debugging purposes only
-        ),
-        MatToolbarModule,
-        MatCardModule,
-        MatIconModule,
         MatFormFieldModule,
-        MatInputModule,
-        MatButtonModule,
-        FormsModule,
         TextMaskModule,
-        HttpClientModule,
+        MatButtonModule,
+        MatInputModule,
+        MatSnackBarModule,
         ReactiveFormsModule,
-        MatSnackBarModule
       ],
       providers: [
         {
@@ -72,8 +56,9 @@ describe('OperatorComponent', () => {
             },
           }
         },
-        RequesterService,
-        {provide: APP_BASE_HREF, useValue: '/'}
+        {provide: APP_BASE_HREF, useValue: '/'},
+        OperatorsService,
+        ReplenishPhoneService
       ],
 
     })
